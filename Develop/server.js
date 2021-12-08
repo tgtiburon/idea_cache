@@ -3,11 +3,18 @@ const { application } = require("express");
 const express = require("express");
 // require path
 const path = require("path");
+//UUID so we can keep track of individual notes
+const { v4: uuidv4 } = require('uuid');
+//For saving with uuid
+const fs = require('fs');
 
 const PORT = process.env.PORT || 3001;
-
+// load the DB into a require
+const notesDB = require('./db/db.json');
 //Instantiate the server
 const app = express();
+
+
 
 // require statement will read the index.js file in each
 // of the required locations
@@ -43,6 +50,66 @@ app.get("/api/notes", (req, res) => {
 app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/notes.html"))
 })
+
+
+//Save with UUID id
+const uuidSave = (newNote) => {
+   //newNote = data;
+  //let allDB = [] ;
+  console.log("inside uuidSave");
+ // console.log(newNote)
+  // load the database first
+  const dbPath = path.join(__dirname, "/db/db.json");
+ // notesDB  = fs.readFileSync(dbPath,'utf8', function(err,dbData) {
+   // if(err) {
+    //  return console.log(err);
+   // }
+    //notesDB = dbData;
+     
+    //console.log(JSON.parse(dbData));
+    //console.log(dbData);
+    //console.log("after", notesDB)
+    //return (dbData);
+
+   //});
+
+   //console.log(notesDB);
+
+  
+
+  
+  newNote.id  = uuidv4();
+
+  console.log("Below is notesDB")
+  console.table(notesDB);
+
+
+  //console.log(newNote); 
+  notesDB.push(newNote);
+  console.log("Below is notesDB after push")
+  console.table(notesDB);
+  
+  
+
+  // save the modified db
+  fs.writeFileSync(dbPath, 
+      JSON.stringify(notesDB, null, 2) 
+   ); 
+
+  
+  
+
+
+
+};
+
+app.post('/api/notes', (req,res)=> {
+  console.log("post attempted");
+  //console.log(req.body);
+  let newNote = req.body;
+  uuidSave(newNote);
+
+});
 
 
 

@@ -1,4 +1,5 @@
-//UUID so we can keep track of individual notes
+
+
 
 
 let noteTitle;
