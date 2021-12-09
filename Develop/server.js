@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 // load the DB into a require
 const notesDB = require('./db/db.json');
+const { traceDeprecation } = require("process");
 
 //Instantiate the server
 const app = express();
@@ -96,6 +97,8 @@ app.post('/api/notes', (req,res)=> {
   //console.log(req.body);
   let newNote = req.body;
   uuidSave(newNote);
+  res.json(notesDB);
+ 
 });
 /*
 const deleteNote = (id) =>
@@ -109,23 +112,54 @@ const deleteNote = (id) =>
 
 app.delete('/api/notes/:id', (req, res) => {
   console.log("delete attempted");
-  let id = req.params;
+  let id = req.params.id;
   //id = JSON.stringify(id);
  // console.log(id);
  // console.log(req.body);
  //console.table(notesDB);
  //let tmpDB =JSON.stringify(notesDB)
  notesDB.forEach(element => {
-   tmpStr = JSON.stringify(element.id);
-    console.log('id', id);
-    console.log('elementid', tmpStr);
+   //tmpStr = JSON.stringify(element.id);
+   // console.log('id', id);
+   //console.log('elementid', element.id);
 
-    if(tmpStr === id) {
-      console.log("id", id);
-      console.log("element", element);
+    if(element.id === id) {
+      //console.log("id", id);
+      //console.log("element", element);
       console.log('match')
     }
  });
+ /*  
+    app.delete("/api/notes/:id", function(req, res) {
+    console.log("req params", req.params.id)
+    myArray = myArray.filter(({ id }) => id !== req.params.id);
+  });
+
+ */
+ // loaded array version
+ //notesDB = notesDB.filter(({ id }) => id !== req.params.id);
+ 
+ // modify the array
+console.table(notesDB);
+const dbIndex = notesDB.findIndex(({ id })=> id === req.params.id);
+  if(dbIndex >= 0) {
+    notesDB.splice(dbIndex, 1);
+
+
+  }
+
+
+
+ console.table(notesDB);
+
+ const dbPath = path.join(__dirname, "/db/db.json");
+
+ fs.writeFileSync(dbPath, 
+  JSON.stringify(notesDB, null, 2) 
+); 
+
+  // send back the updated database;
+  res.json(notesDB);
   
 });
 
