@@ -1,16 +1,20 @@
 // require express for express server functionality
-const { application } = require("express");
 const express = require("express");
+
 // require path
 const path = require("path");
+
 //UUID so we can keep track of individual notes
 const { v4: uuidv4 } = require('uuid');
+
 //For saving with uuid
 const fs = require('fs');
 
 const PORT = process.env.PORT || 3001;
+
 // load the DB into a require
 const notesDB = require('./db/db.json');
+
 //Instantiate the server
 const app = express();
 
@@ -64,20 +68,12 @@ const uuidSave = (newNote) => {
    // if(err) {
     //  return console.log(err);
    // }
-    //notesDB = dbData;
-     
-    //console.log(JSON.parse(dbData));
-    //console.log(dbData);
-    //console.log("after", notesDB)
     //return (dbData);
 
    //});
 
    //console.log(notesDB);
 
-  
-
-  
   newNote.id  = uuidv4();
 
   console.log("Below is notesDB")
@@ -89,18 +85,10 @@ const uuidSave = (newNote) => {
   console.log("Below is notesDB after push")
   console.table(notesDB);
   
-  
-
   // save the modified db
   fs.writeFileSync(dbPath, 
       JSON.stringify(notesDB, null, 2) 
    ); 
-
-  
-  
-
-
-
 };
 
 app.post('/api/notes', (req,res)=> {
@@ -108,7 +96,37 @@ app.post('/api/notes', (req,res)=> {
   //console.log(req.body);
   let newNote = req.body;
   uuidSave(newNote);
+});
+/*
+const deleteNote = (id) =>
+  fetch(`/api/notes/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  */
 
+app.delete('/api/notes/:id', (req, res) => {
+  console.log("delete attempted");
+  let id = req.params;
+  //id = JSON.stringify(id);
+ // console.log(id);
+ // console.log(req.body);
+ //console.table(notesDB);
+ //let tmpDB =JSON.stringify(notesDB)
+ notesDB.forEach(element => {
+   tmpStr = JSON.stringify(element.id);
+    console.log('id', id);
+    console.log('elementid', tmpStr);
+
+    if(tmpStr === id) {
+      console.log("id", id);
+      console.log("element", element);
+      console.log('match')
+    }
+ });
+  
 });
 
 
@@ -116,3 +134,6 @@ app.post('/api/notes', (req,res)=> {
 app.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);
 });
+
+
+
