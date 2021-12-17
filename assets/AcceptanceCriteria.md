@@ -59,19 +59,19 @@ Getting Started:
 
 - [x] Application back end must store notes with unique IDs in a JSON file.
 
-- [ ] Application must be deployed to Heroku.
+- [x] Application must be deployed to Heroku.
 
 ## Deployment: 36%
-- [ ] Application deployed at live URL.
+- [x] Application deployed at live URL.
 
-- [ ] Application loads with no errors.
+- [x] Application loads with no errors.
 
-- [ ] Application GitHub URL submitted.
+- [x] Application GitHub URL submitted.
 
-- [ ] GitHub repository contains application code.
+- [x] GitHub repository contains application code.
 
 ## Application Quality: 11%
-- [ ] Application console is free of errors.
+- [x] Application console is free of errors.
 ## Repository Quality: 13%
 - [x] Repository has a unique name.
 
@@ -86,8 +86,8 @@ Getting Started:
 ## Bonus: +10 Points
 - [x] Application allows users to delete notes.
 ## How to Submit the Challenge
-- [ ] You are required to submit BOTH of the following for review:
+- [x] You are required to submit BOTH of the following for review:
 
-- [ ] The URL of the functional, deployed application.
+- [x] The URL of the functional, deployed application.
 
-- [ ] The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
+- [x] The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
