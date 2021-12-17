@@ -10,7 +10,7 @@
   ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) 
 ## Description
 
-Idea Cache allows the user to store their ideas on an express server.  It demonstrates the use of node.js, express server npm, as well as overall good programing practices.
+Idea Cache allows the user to store their ideas on an express server.  It demonstrates the use of node.js, express server, as well as overall quality programing practices.
 
 ---
   ## Table of Contents
@@ -52,7 +52,7 @@ Idea Cache allows the user to store their ideas on an express server.  It demons
 
   ## Installation
 
-      1. Clone the reposititory 
+      1. Clone the repository 
 
       2. type: npm init --y 
 
@@ -63,6 +63,8 @@ Idea Cache allows the user to store their ideas on an express server.  It demons
   ## Usage
 
       1. From the prompt type node index.js 
+      2. Or if you just want to use it on click on the Heroku link below: 
+   &emsp;[Heroku](https://idea-cache-tgtiburon.herokuapp.com/)
 
 
   ---
