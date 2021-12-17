@@ -43,8 +43,8 @@ Idea Cache allows the user to store their ideas on an express server.  It demons
 ---
 
 ## Screenshot 
-  ![](idea_cache_scn.png)
-  ![](idea_cache_scn2.png)
+  ![](./assets/idea_cache_scn.png)
+  ![](./assets/idea_cache_scn2.png)
   
   
 

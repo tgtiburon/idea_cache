@@ -22,7 +22,7 @@ app.use(express.json());
 // we don't need to use endpoints for everything due to this
 app.use(express.static("public"));
 
-// USE routes to clean up server.js file.
+
 // if someone navigates to /api the app will use the
 // api router we setup in apiRoutes
 app.use('/api', apiRoutes);
@@ -35,9 +35,7 @@ app.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);
 });
 
-// app.listen(process.env.PORT || 3000, function(){
-//   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-// });
+
 
 
 

@@ -81,10 +81,10 @@ Getting Started:
 
 - [x] Repository contains multiple descriptive commit messages.
 
-- [ ] Repository contains quality README file with description, screenshot, and link to deployed application.
+- [x] Repository contains quality README file with description, screenshot, and link to deployed application.
 
 ## Bonus: +10 Points
-- [ ] Application allows users to delete notes.
+- [x] Application allows users to delete notes.
 ## How to Submit the Challenge
 - [ ] You are required to submit BOTH of the following for review:
 
