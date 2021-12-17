@@ -51,11 +51,7 @@ router.post("/notes", (req, res) => {
 
 // if user deletes a note get it's id and remove it
 router.delete("/notes/:id", (req, res) => {
- // console.log("delete attempted");
- // let id = req.params.id;
-  
-  // loaded array version
-  //notesDB = notesDB.filter(({ id }) => id !== req.params.id);
+
 
   // modify the array
   console.table(notesDB);
@@ -71,6 +67,7 @@ router.delete("/notes/:id", (req, res) => {
   fs.writeFileSync(dbPath, JSON.stringify(notesDB, null, 2));
 
   // send back the updated database;
+  console.table(notesDB);
   res.json(notesDB);
 });
 
